@@ -11,3 +11,6 @@ After an hour of an amazing presentation by Dr. Mason, the event concluded with 
 
 Here are some glimpse of session.
 
+![image](https://user-images.githubusercontent.com/116882665/227726771-ba5d5198-2d66-4396-b041-d82ba0788c99.png)
+
+![image](https://user-images.githubusercontent.com/116882665/227726800-c475d010-6dda-4cf7-acc5-07c6f353e271.png)
