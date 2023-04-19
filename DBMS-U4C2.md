@@ -98,7 +98,9 @@ View Serializable Schedule:
 # View Serializability
 
 > is another type of Serializability that can be used to check whether a non-serial schedule is view serializable or not.
-> In View Serializability, a schedule is said to be view serializable if it can transform into a serial schedule by applying certain view equivalence rules.
+> 
+> In View Serializability, a schedule is said to be view serializable if 
+> it can transform into a serial schedule by applying certain view equivalence rules.
 
 ### View Equivalence Rules:
 
@@ -112,3 +114,59 @@ View Serializable Schedule:
     * If any one of the equivalent serial schedules is conflict serializable, then the given schedule is also conflict serializable and hence it is view serializable.
 
 Note: If a schedule is conflict serializable, then it is always view serializable, but the converse may not be true.    
+
+
+
+# Concurrency Control Protocols:
+
+    * Concurrency control manages simultaneous operations without conflicts
+    * Problems in concurrency include lost updates, uncommitted dependencies, and non-repeatable reads
+    * Concurrency control resolves read-write and write-write conflict issues and ensures serializability
+    * Different protocols offer varying levels of concurrency and overhead
+    * Optimistic Concurrency Control is a validation-based protocol that 
+        allows for more concurrency by delaying validation until a transaction is committed
+
+### Concurrency Control Techniques in DBMS:
+
+> Lock-Based Protocols:
+
+        Mechanism where a transaction cannot read or write data until it acquires an appropriate lock.
+        Binary Locks: locked or unlocked states.
+        Shared Lock (S): read-only lock, data item can be shared between transactions.
+        Exclusive Lock (X): data item can be read and written, exclusive and can't be held concurrently on the same data item.
+
+> Two Phase Locking Protocol:
+
+        Ensures serializability by applying a lock to the transaction data which blocks other transactions to access the same data simultaneously.
+        Divides the execution phase of a transaction into three different parts: growing, shrinking, and lock release.
+
+> Timestamp-Based Protocols:
+
+        Uses system time or logical counter as a timestamp to serialize the execution of concurrent transactions.
+        Ensures that every conflicting read and write operations are executed in a timestamp order.
+        Older transactions are given priority.
+
+> Validation-Based Protocols:
+
+        Also known as Optimistic Concurrency Control Technique.
+        Updates local copies of the transaction data rather than the data itself.
+        Performed in three phases: read, validation, and write.
+        Updates are only applied to the database if validation is successful, else transaction is rolled back.
+        
+        
+# Recovery Techniques :
+
+> Recovery techniques ensure that data stored in database systems is available when required, even after failures.
+> 
+> Atomicity is a feature of a database system where transactions are either completed successfully and committed or have no effect on the database.
+> 
+> The system log is a special file that contains information about transactions and updates in the database.
+  
+    * The log keeps track of all transaction operations that affect the values of database items.
+    * Checkpoint is a mechanism where all the previous logs are removed from the system and stored permanently in a storage disk.
+    
+    * Undoing involves reversing the operations of a transaction in case of a crash, while deferred update does not physically update the database until a transaction has reached its commit point.
+    * Immediate update updates the database by some operations of a transaction before the transaction reaches its commit point.
+    * Caching/buffering involves caching disk pages that include data items to be updated into main memory buffers.
+    
+    * Backward recovery involves undoing modifications when a backup of the data is not available, while forward recovery involves updating the database with all changes verified.        
